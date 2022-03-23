@@ -1,0 +1,75 @@
+.header {
+    width: 100%;
+    background: #FFFFFF;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 26px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+}
+
+.app_title {
+    text-align: center;
+    padding: 15px 0 15px 16px;
+}
+
+.sign_btns {
+    padding: 9px 16px 9px 0;
+    width: auto;
+}
+
+.btn {
+    /*width: 89px;
+    height: 35px;
+    border-color: #52C41A;
+    border-radius: 5px;
+    color: #52C41A;
+    background-color: transparent;*/
+
+    /* сброс стилей */
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+    
+    /* сброс браузерных стилей для фокуса */
+    outline: none;
+    
+    /* переопределение стилей для ссылок */
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+
+    /* небольшие вертикальные отступы */
+    margin: -2px 0;
+
+    /* невидимая рамка */
+    border: solid 1px transparent;
+    border-radius: 4px;
+
+    /* для установки размеров используем паддинги */
+    padding: 0.5em 1em;
+
+    /* контрастные цвета */
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.btn:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+}
+  
+.btn:hover,
+.btn:focus {
+    color: #52C41A;
+    border-color: currentColor;
+    background-color: white;
+}
+
+.btn::-moz-focus-inner {
+    border: none;
+}
