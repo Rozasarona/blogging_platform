@@ -1,75 +1,41 @@
 .header {
-    width: 100%;
     background: #FFFFFF;
-    height: 50px;
+    height: 80px;
+    font-size: 18px;
+    line-height: 28px;
+    color: rgba(0, 0, 0, 0.85);
+    padding: 0 22px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 26px;
-    font-family: 'Inter', sans-serif;
-    font-weight: bold;
 }
 
-.app_title {
-    text-align: center;
-    padding: 15px 0 15px 16px;
+.logo {
+    color: rgba(0, 0, 0, 0.85);
+    text-decoration: none;
 }
 
-.sign_btns {
-    padding: 9px 16px 9px 0;
-    width: auto;
+.authentication {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.btn {
-    /*width: 89px;
-    height: 35px;
-    border-color: #52C41A;
-    border-radius: 5px;
-    color: #52C41A;
-    background-color: transparent;*/
-
-    /* сброс стилей */
-    padding: 0;
-    border: none;
-    font: inherit;
-    color: inherit;
-    background-color: transparent;
-    cursor: pointer;
-    
-    /* сброс браузерных стилей для фокуса */
+.signup_btn {
     outline: none;
-    
-    /* переопределение стилей для ссылок */
     display: inline-block;
     text-align: center;
     text-decoration: none;
-
-    /* небольшие вертикальные отступы */
-    margin: -2px 0;
-
-    /* невидимая рамка */
-    border: solid 1px transparent;
+    margin: -2px 0 0 19px;
+    border: solid 1px #52C41A;
     border-radius: 4px;
-
-    /* для установки размеров используем паддинги */
-    padding: 0.5em 1em;
-
-    /* контрастные цвета */
-    color: #000000;
-    background-color: #ffffff;
-}
-
-.btn:active {
-    transform: translateY(1px);
-    filter: saturate(150%);
-}
-  
-.btn:hover,
-.btn:focus {
+    padding: 0.5em 1em;    
     color: #52C41A;
-    border-color: currentColor;
-    background-color: white;
 }
 
-.btn::-moz-focus-inner {
-    border: none;
+.signin_btn {
+    color: rgba(0, 0, 0, 0.85);
+    width: 84px;
+    text-decoration: none;
 }

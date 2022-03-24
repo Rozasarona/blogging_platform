@@ -5,13 +5,13 @@ function Header () {
     return(
 
         <header className="header">
-            <div className="app_title">Realworld Blog</div>
-            <div className="sign_btns">
-                <a href="#" classclassName="btn">
+            <a className="logo" href="#">Realworld Blog</a>
+            <div className="authentication">
+                <a href="#" classclassName="signin_btn">
                     Sign In 
                 </a>
-                <a href="#" classclassName="btn">
-                    Sing Up
+                <a href="#" classclassName="signup_btn">
+                    Sign Up
                 </a>
             </div>
         </header>

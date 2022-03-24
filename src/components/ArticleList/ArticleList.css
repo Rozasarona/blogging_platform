@@ -1,12 +1,5 @@
 .main {
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    flex-wrap: wrap;
-    background: #F3F7FA;
-    margin: 0 auto;
-    width: 960px;
-    background: #EBEEF3; 
-    font-family: 'Inter', sans-serif;
-    /*border: solid 1px black;*/
 }
