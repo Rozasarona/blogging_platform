@@ -1,15 +1,20 @@
 import React  from "react";
 import './ArticleCard.css';
 import like from './like.png';
+import { format } from 'date-fns';
+import { marked } from 'marked';
+import { Link } from "react-router-dom";
 
-function ArticleCard({ title, favoritesCount, tagList, description, author, createdAt }) {
+
+function ArticleCard({ title, favoritesCount, tagList, description, author, createdAt, body, slug }) {
+    const createdAtDate = new Date(createdAt);
 
     return(
         <article className="articleCard">
         <div className="article_header">
             <div className="article_header-title">
                 <div className="title_container">
-                    <h3>{ title }</h3> 
+                    <h3><Link to={`/articles/${slug}`}>{title}</Link></h3> 
                     <div className="likes">
                         <img src= { like } alt="like" /> <span>{ favoritesCount }</span>
                     </div>
@@ -21,7 +26,7 @@ function ArticleCard({ title, favoritesCount, tagList, description, author, crea
             <div className="article_header-info">
                 <div className="article_header-info_content">
                     <span className="name">{ author.username }</span><br />
-                    <span className="articleDate">{ new Date(createdAt).toLocaleDateString()}</span>
+                    <span className="articleDate">{ format(createdAtDate, 'MMMM d, yyyy')}</span>
                 </div>
                 <img src= { author.image } alt="avatar" width = "46" height = "46" />
             </div> 
@@ -29,6 +34,7 @@ function ArticleCard({ title, favoritesCount, tagList, description, author, crea
         <div className="article_preamble">
             { description }
         </div>
+        {body && <div className="article_content" dangerouslySetInnerHTML={{__html: marked.parse(body)}}></div>}
     </article> 
     );
 }

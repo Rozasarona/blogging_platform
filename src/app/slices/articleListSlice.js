@@ -2,7 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     currentPageNumber: 1,
-    articles: []
+    totalCount: 0,
+    articles: [],
+    articlesBySlug: {}
 };
 
 export const articleListSlice = createSlice({
@@ -13,11 +15,15 @@ export const articleListSlice = createSlice({
             state.currentPageNumber = action.payload;
         },
         setArticles: (state, action) => {
-           state.articles = [...action.payload];
-        }
+            state.articles = action.payload;
+            state.articlesBySlug = action.payload.reduce((dict, article) => {
+                dict[article.slug] = article;
+                return dict;
+            }, {});
+         }
     }
 });
 
-export const { setCurrentPageNumber, setArticles } = articleListSlice.actions;
+export const { setCurrentPageNumber, setArticlesAndTotalCount } = articleListSlice.actions;
 
 export default articleListSlice.reducer;

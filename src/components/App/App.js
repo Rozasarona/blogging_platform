@@ -3,6 +3,8 @@ import ArticleList from '../ArticleList/ArticleList';
 import Header from '../Header/Header';
 import * as sdk from '../../conduit-api-client-sdk';
 import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import ArticleView from '../ArticleView/ArticleView';
 
 
 class App extends React.Component {
@@ -17,8 +19,11 @@ class App extends React.Component {
         return (
             <div className="wrapper">
                 <Header />
-                <button onClick={this.apiTest}>Тык!</button>
-                <ArticleList />
+                <Routes>
+                    <Route path='/' element={<ArticleList/>} />
+                    <Route path='/articles' element={<ArticleList/>} />
+                    <Route path="/articles/:slug" element={<ArticleView/>} />
+                </Routes>
             </div>
         );
     }
