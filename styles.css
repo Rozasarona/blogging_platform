@@ -200,6 +200,10 @@ input {
     color: #BFBFBF;
 }
 
+input::placeholder {
+    color: #D9D9D9;
+}
+
 .band {
     border-bottom: 1px solid #D9D9D9; 
     width: 320px;
@@ -209,7 +213,7 @@ input {
 
 .agreement {
     width: 320px;
-    margin: 0 auto 14px auto;
+    margin: 0 auto 21px auto;
 }
 
 label input[type=checkbox] {
