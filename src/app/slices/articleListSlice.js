@@ -14,9 +14,10 @@ export const articleListSlice = createSlice({
         setCurrentPageNumber: (state, action) => {
             state.currentPageNumber = action.payload;
         },
-        setArticles: (state, action) => {
-            state.articles = action.payload;
-            state.articlesBySlug = action.payload.reduce((dict, article) => {
+        setArticlesAndTotalCount: (state, action) => {
+            state.totalCount = action.payload.articlesCount;
+            state.articles = action.payload.articles;
+            state.articlesBySlug = action.payload.articles.reduce((dict, article) => {
                 dict[article.slug] = article;
                 return dict;
             }, {});
