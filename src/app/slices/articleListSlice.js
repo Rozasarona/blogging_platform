@@ -4,7 +4,9 @@ const initialState = {
     currentPageNumber: 1,
     totalCount: 0,
     articles: [],
-    articlesBySlug: {}
+    articlesBySlug: {},
+    loading: false,
+    alertIsVisible: false
 };
 
 export const articleListSlice = createSlice({
@@ -21,10 +23,16 @@ export const articleListSlice = createSlice({
                 dict[article.slug] = article;
                 return dict;
             }, {});
-         }
+        },
+        setLoading: (state, action) => {
+            state.loading = action.payload;
+        },
+        setAlertVisibility: (state, action) => {
+            state.alertIsVisible = action.payload;
+        }
     }
 });
 
-export const { setCurrentPageNumber, setArticlesAndTotalCount } = articleListSlice.actions;
+export const { setCurrentPageNumber, setArticlesAndTotalCount, setLoading, setAlertVisibility } = articleListSlice.actions;
 
 export default articleListSlice.reducer;

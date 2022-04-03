@@ -3,7 +3,7 @@ import ArticleList from '../ArticleList/ArticleList';
 import Header from '../Header/Header';
 import * as sdk from '../../conduit-api-client-sdk';
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import ArticleView from '../ArticleView/ArticleView';
 
 
@@ -16,14 +16,15 @@ class App extends React.Component {
     };
 
     render() {
+        const list = (<ArticleList />);
         return (
             <div className="wrapper">
                 <Header />
-                <Routes>
-                    <Route path='/' element={<ArticleList/>} />
-                    <Route path='/articles' element={<ArticleList/>} />
-                    <Route path="/articles/:slug" element={<ArticleView/>} />
-                </Routes>
+                <Switch>
+                    <Route exact path='/'>{list}</Route>
+                    <Route exact path='/articles'>{list}</Route>
+                    <Route path="/articles/:slug"><ArticleView /></Route>
+                </Switch>
             </div>
         );
     }
