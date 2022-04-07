@@ -161,7 +161,6 @@ ul .btn_tag {
     align-items: flex-start;
     padding: 48px 32px 48px 32px;
     width: 384px;
-    height: 599px;
     margin: 0 auto 24px auto;
     background-color: #FFFFFF;
     border: 1px solid #D9D9D9;
@@ -213,7 +212,7 @@ input::placeholder {
 
 .agreement {
     width: 320px;
-    margin: 0 auto 21px auto;
+    margin: 0 auto;
 }
 
 label input[type=checkbox] {
@@ -233,10 +232,10 @@ label input[type=checkbox] + span {
     text-decoration: none;
     border: solid 1px transparent;
     border-radius: 4px;    
-    width: 320px;
+    width: 300px;
     height: 22px;
     padding: 12px;
-    margin: 0 auto 10px auto;
+    margin: 21px auto 10px auto;
     color: #ffffff;
     background-color: #1890FF;
   }
@@ -266,4 +265,18 @@ label input[type=checkbox] + span {
   .form_footer a {
       text-decoration: none;
       color:  #1890FF;
+  }
+
+
+  .newArticle_form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 48px 32px 48px 32px;
+    width: 960px;
+    margin: 0 auto 24px auto;
+    background-color: #FFFFFF;
+    border: 1px solid #D9D9D9;
+    border-radius: 6px;
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.15));
   }
