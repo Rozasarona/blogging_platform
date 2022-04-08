@@ -8,16 +8,20 @@ import './ArticleView.css';
 function ArticleView() {
     const {slug} = useParams();
     const article = useSelector(state => state.articleList.articlesBySlug[slug]);
-    return ((article && <ArticleCard
-        title={article.title}
-        favoritesCount={article.favoritesCount}
-        tagList={article.tagList}
-        description={article.description}
-        author={article.author}
-        createdAt={article.createdAt}
-        body={article.body}
-        slug={article.slug}
-    />) || null);
+    return ((article && 
+        <div className='main'>
+            <ArticleCard
+                title={article.title}
+                favoritesCount={article.favoritesCount}
+                tagList={article.tagList}
+                description={article.description}
+                author={article.author}
+                createdAt={article.createdAt}
+                body={article.body}
+                slug={article.slug}
+            />
+        </div>
+    ) || null);
 }
 
 export default ArticleView;

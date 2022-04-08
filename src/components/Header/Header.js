@@ -8,12 +8,11 @@ function Header () {
         <header className="header">
             <Link to='/' className="logo">Realworld Blog</Link>
             <div className="authentication">
-                <a href="#" className="signin_btn">
-                    Sign In 
+                <a href="://localhost:3000" className="signin_btn">
+                    Sign In
                 </a>
-                <a href="#" className="signup_btn">
-                    Sign Up
-                </a>
+                {/* <a href="://localhost:3000" className="signup_btn">Sign Up</a> */}
+                <Link to='/sign-up' className="signup_btn">Sign Up</Link>
             </div>
         </header>
     );

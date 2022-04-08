@@ -19,28 +19,26 @@ html, body {
 }
 
 .form-title {
-    width: 311px;
     height: 28px;
     margin: 0 auto 21px auto;
 }
 
 .form-title h3 {
-    color:black;
+    color: black;
     text-align: center;
 }
 
 .input-title {
     width: 320px;
     height: 22px;
-    margin: 0 auto 14px auto;
+    margin-top: 14px;
     font-size: 14px;
     color: #262626;
 }
 
 input {
-    width: 840px;
+    width: 100%;
     height: 40px;
-    margin: 0 auto 0 auto;
     border: 1px solid #D9D9D9;
     box-sizing: border-box;
     border-radius: 4px;
@@ -49,28 +47,60 @@ input {
     color: #BFBFBF;
 }
 
+textarea {
+    width: 100%;
+    height: 168px;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border: 1px solid #D9D9D9;
+    border-radius: 4px;
+    resize: none;
+}
+
+textarea::placeholder {
+    color: #D9D9D9;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.newArticle_footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer_string {
+    display: flex;
+}
+
 input::placeholder {
     color: #D9D9D9;
 }
 
-.band {
-    border-bottom: 1px solid #D9D9D9; 
-    width: 320px;
-    margin: 0 auto 14px auto;
-    padding: 5px;
+.signup_btn {
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 0 5px 15px;
+    border: solid 1px red;
+    border-radius: 4px;
+    padding: 0.5em 1em;    
+    color: red;
 }
 
-.agreement {
-    width: 320px;
-    margin: 0 auto 21px auto;
+.addTag_btn {
+    outline: none;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 0 5px 15px;
+    border: solid 1px blue;
+    border-radius: 4px;
+    padding: 0.5em 1em;    
+    color: blue;
 }
 
-label input[type=checkbox] {
-    width: 16px;
-}
-
-label input[type=checkbox] + span {
-    font-size: 14px;
+.footer_string input {
+    width: 300px;
+    margin-bottom: 5px;
 }
 
 .create_btn {
@@ -85,7 +115,8 @@ label input[type=checkbox] + span {
     width: 320px;
     height: 22px;
     padding: 12px;
-    margin: 0 auto 10px auto;
+    margin-top: 16px;
+    margin-bottom: 10px;
     color: #ffffff;
     background-color: #1890FF;
 }
