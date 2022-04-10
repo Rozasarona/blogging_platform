@@ -7,6 +7,7 @@ import './App.css';
 import { Switch, Route } from 'react-router-dom';
 import ArticleView from '../ArticleView/ArticleView';
 import SignUpForm from '../SignUpForm/SignUpForm';
+import SignInForm from '../SignInForm/SignInForm';
 import { use } from 'marked';
 
 
@@ -23,6 +24,16 @@ class App extends React.Component {
         });
     };
 
+    onLoginUser = async (user) => {
+        const client = new api.UserAndAuthenticationApi(null, constants.API_BASE_PATH);
+        await client.login({
+            user: {
+                email: user.email,
+                password: user.password
+            }
+        });
+    };
+
     render() {
         const list = (<ArticleList />);
         return (
@@ -33,6 +44,7 @@ class App extends React.Component {
                     <Route exact path='/articles'>{list}</Route>
                     <Route path="/articles/:slug"><ArticleView /></Route>
                     <Route path="/sign-up"><SignUpForm onCreateUser={this.onCreateUser} /></Route>
+                    <Route path="/sign-in"><SignInForm onLoginUser= {this.onLoginUser} /></Route>
                 </Switch>
             </div>
         );
