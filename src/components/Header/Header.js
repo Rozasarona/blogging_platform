@@ -7,7 +7,7 @@ function Header () {
 
         <header className="header">
             <Link to='/' className="logo">Realworld Blog</Link>
-            <div className="authentication">
+            <div className="options">
                 <a href="://localhost:3000" className="signin_btn">
                     Sign In
                 </a>

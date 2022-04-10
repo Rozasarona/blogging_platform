@@ -8,7 +8,7 @@
             name="description"
             content="Web site created using create-react-app"
         />
-        <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="./EditProfile.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
@@ -18,17 +18,21 @@
             <header class="header">
                 <div class="logo">Realworld Blog</div>
                 <div class="options">
-                    <a href="#" class="signin_btn">
-                        Sign In 
+                    <a href="#" class="create-article_btn">
+                        Create article
                     </a>
-                    <a href="#" class="signup_btn">
-                        Sing Up
+                    <span class="name">John Doe</span>
+                    <div class="photo">
+                        <img src="./photo.png">
+                    </div>
+                    <a href="#" class="logout_btn">
+                        Log Out
                     </a>
                 </div>
             </header>            
-            <form class = "sign_form" action = "url" method = "post">
+            <form class = "editProfile_form" action = "url" method = "post">
                 <div class="form-title">
-                    <h3>Create new account</h3>
+                    <h3>Edit profile</h3>
                 </div>
                 <div class="input-title">
                     Username 
@@ -39,27 +43,16 @@
                 </div>
                 <input type = "email" placeholder="Email address">
                 <div class="input-title">
-                    Password 
+                    New password 
                 </div>
                 <input type = "password" placeholder="Password">
                 <div class="input-title">
-                    Repeat password 
+                    Avatar image(url)
                 </div>
-                <input type = "password" placeholder="Password">
-                <div class="band"></div>
-                <div class="agreement">
-                    <label>
-                        <input type="checkbox">
-                        <span>I agree to the processing of my personal<br>information</span>
-                    </label>
-                </div>
+                <input type = "password" placeholder="Avatar image">
                 <a href="#" class="create_btn">
-                    Create
+                    Save
                 </a>
-                <div class="form_footer">
-                    <span>Already have an account?</span>
-                    <a href="#">Sign in</a>
-                </div>
             </form>
         </div>
     </body>
