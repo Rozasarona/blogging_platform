@@ -9,7 +9,6 @@ function Header () {
             <Link to='/' className="logo">Realworld Blog</Link>
             <div className="options">                
                 <Link to='/sign-in' className="signin_btn">Sign In</Link>
-                {/* <a href="://localhost:3000" className="signup_btn">Sign Up</a> */}
                 <Link to='/sign-up' className="signup_btn">Sign Up</Link>
             </div>
         </header>

@@ -8,6 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 import ArticleView from '../ArticleView/ArticleView';
 import SignUpForm from '../SignUpForm/SignUpForm';
 import SignInForm from '../SignInForm/SignInForm';
+import NewArticle from '../NewArticle/NewArticle';
 import { use } from 'marked';
 
 
@@ -34,6 +35,19 @@ class App extends React.Component {
         });
     };
 
+    onCreateArticle = async (article) => {
+        const client = new api.ArticlesApi(null, constants.API_BASE_PATH);
+        await client.createArticle({
+            artricle: {
+                title: article.title,
+                description: article.description,
+                text: article.text,
+                tags: article.tags
+            }
+        });
+    };
+    
+
     render() {
         const list = (<ArticleList />);
         return (
@@ -44,7 +58,8 @@ class App extends React.Component {
                     <Route exact path='/articles'>{list}</Route>
                     <Route path="/articles/:slug"><ArticleView /></Route>
                     <Route path="/sign-up"><SignUpForm onCreateUser={this.onCreateUser} /></Route>
-                    <Route path="/sign-in"><SignInForm onLoginUser= {this.onLoginUser} /></Route>
+                    <Route path="/sign-in"><SignInForm onLoginUser={this.onLoginUser} /></Route>
+                    <Route path="/"><NewArticle onCreateArticle={this.onCreateArticle} /></Route>
                 </Switch>
             </div>
         );
