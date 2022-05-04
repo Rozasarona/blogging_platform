@@ -7,7 +7,7 @@ function NewArticle(onCreateArticle) {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [text, setText] = useState('');
-    const [tags, setTags] = useState('');
+    const [tags] = useState('');
 
     const inputHandler = setState => event => setState(event.target.value);
 
@@ -28,13 +28,13 @@ function NewArticle(onCreateArticle) {
                 </div>
                 <input  type = "text" placeholder="Title" onInput={inputHandler(setTitle)} value={title} />
                 <div class="input-title">
-                    Title 
+                    Title
                 </div>
                 <input  type = "text" placeholder="Description" onInput={inputHandler(setDescription)} value={description} />
                 <div class="input-title">
                     Short description
                 </div>
-                <input  type = "text" placeholder="Title" onInput={inputHandler(setText)} value={text} /> 
+                <input  type = "text" placeholder="Title" onInput={inputHandler(setText)} value={text} />
                 <div class="input-title">
                     Text
                 </div>
@@ -44,21 +44,21 @@ function NewArticle(onCreateArticle) {
                         Tags
                     </div>
                     <div class="footer_string">
-                        <input  type = "text" placeholder="Tag">
-                        <a href="#" class="signup_btn">
+                        <input  type = "text" placeholder="Tag" />
+                        <a href="/" class="signup_btn">
                             Delete
-                        </a> 
+                        </a>
                     </div>
                     <div class="footer_string">
-                        <input  type = "text" placeholder="Tag">                    
-                        <a href="#" class="signup_btn">
+                        <input  type = "text" placeholder="Tag" />
+                        <a href="/" class="signup_btn">
                             Delete
-                        </a> 
-                        <a href="#" class="addTag_btn">
+                        </a>
+                        <a href="/" class="addTag_btn">
                             Add tag
                         </a>
                     </div>
-                    <a href="#" class="create_btn">
+                    <a href="/" class="create_btn">
                         Send
                     </a>
                 </div>

@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.signup_btn {
+.signup_btn, .signup_btn:hover {
     outline: none;
     display: inline-block;
     text-align: center;
@@ -30,11 +30,11 @@
     margin: -2px 0 0 19px;
     border: solid 1px #52C41A;
     border-radius: 4px;
-    padding: 0.5em 1em;    
+    padding: 0.5em 1em;
     color: #52C41A;
 }
 
-.signin_btn {
+.signin_btn, .signin_btn:hover {
     color: rgba(0, 0, 0, 0.85);
     width: 84px;
     text-decoration: none;

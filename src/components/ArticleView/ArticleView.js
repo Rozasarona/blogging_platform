@@ -1,14 +1,24 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import ArticleCard from '../ArticleCard/ArticleCard';
-import './ArticleView.css';
 
+import ArticleCard from '../ArticleCard/ArticleCard';
+
+import * as articleService from '../../services/articleService';
+
+import './ArticleView.css';
 
 function ArticleView() {
     const {slug} = useParams();
-    const article = useSelector(state => state.articleList.articlesBySlug[slug]);
-    return ((article && 
+    const articleListState = useSelector(state => state.articleList);
+    const article = articleListState.articlesBySlug[slug];
+    const dispatch = useDispatch();
+    useEffect(() => {
+        if (!article) {
+            articleService.LoadArticle(dispatch)(slug);
+        }
+    }, [slug]);
+    return ((article &&
         <div className='main'>
             <ArticleCard
                 title={article.title}

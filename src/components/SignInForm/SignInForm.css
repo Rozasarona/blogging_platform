@@ -111,3 +111,19 @@ label input[type=checkbox] + span {
     text-decoration: none;
     color:  #1890FF;
 }
+
+.error {
+    border: 1px solid red;
+}
+
+.error:focus {
+    outline: 1px solid red;
+}
+
+input[type=checkbox].error:focus {
+    outline: none;
+}
+
+.error-message {
+    color: red;
+}

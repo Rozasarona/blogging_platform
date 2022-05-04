@@ -1,37 +1,22 @@
 import React, { useEffect } from 'react';
-import { Pagination, Alert, Spin } from 'antd';
-import ArticleCard from '../ArticleCard/ArticleCard';
-import './ArticleList.css';
-import * as api from '../../conduit-api-client-sdk';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { Pagination, Alert, Spin } from 'antd';
+
+import ArticleCard from '../ArticleCard/ArticleCard';
+
+import * as articleService from '../../services/articleService';
 import * as constants from '../../app/constants';
-import { setArticlesAndTotalCount, setCurrentPageNumber, setLoading, setAlertVisibility } from '../../app/slices/articleListSlice';
-import 'antd/dist/antd.css';
+import { setCurrentPageNumber } from '../../app/slices/articleListSlice';
+
+import './ArticleList.css';
 
 function ArticleList() {
-    const { currentPageNumber, articles, totalCount, loading, alertIsVisible } = useSelector((state) => state.articleList);
+    const articleListState = useSelector(state => state.articleList);
+    const { currentPageNumber, articles, totalCount, loading, alertIsVisible } = articleListState;
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(setLoading(true));
-        const articlesApi = new api.ArticlesApi(null, constants.API_BASE_PATH);
-        let triesCount = 0;
-        const fetchData = async () => {
-            if(triesCount >= 10) {
-                dispatch(setLoading(false));
-                dispatch(setAlertVisibility(true));
-                return;
-            }
-            const result = await articlesApi.getArticles(undefined, undefined, undefined, constants.ARTICLE_LIST_PAGE_SIZE, (currentPageNumber - 1) * constants.ARTICLE_LIST_PAGE_SIZE);
-            dispatch(setArticlesAndTotalCount(result));
-            dispatch(setLoading(false));
-        };
-        const errorHandler = () => {
-            triesCount++;
-            fetchData().catch(errorHandler);
-        };
-        fetchData().catch(errorHandler);
-    }, [ dispatch, currentPageNumber ]);
+    useEffect(() => articleService.LoadArticles(dispatch, articleListState)(), [currentPageNumber]);
 
     const onPaginationChange = (page) => {
         dispatch(setCurrentPageNumber(page));
@@ -50,20 +35,20 @@ function ArticleList() {
                         tagList={article.tagList}
                         description={article.description}
                         author={article.author}
-                        createdAt={article.createdAt} 
+                        createdAt={article.createdAt}
                         slug={article.slug}
                     />))
                 }
             </div>
         </main>
         <div className="paginationContainer">
-        {(totalCount > constants.ARTICLE_LIST_PAGE_SIZE) && <Pagination 
+        {(totalCount > constants.ARTICLE_LIST_PAGE_SIZE) && <Pagination
             size="small"
             pageSize={constants.ARTICLE_LIST_PAGE_SIZE}
             total={totalCount}
             showSizeChanger={false}
             current={currentPageNumber}
-            onChange={onPaginationChange} 
+            onChange={onPaginationChange}
         />}
     </div>
     </>);

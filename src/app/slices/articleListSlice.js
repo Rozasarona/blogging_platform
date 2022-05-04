@@ -22,17 +22,20 @@ export const articleListSlice = createSlice({
             state.articlesBySlug = action.payload.articles.reduce((dict, article) => {
                 dict[article.slug] = article;
                 return dict;
-            }, {});
+            }, state.articlesBySlug || {});
         },
         setLoading: (state, action) => {
             state.loading = action.payload;
         },
         setAlertVisibility: (state, action) => {
             state.alertIsVisible = action.payload;
+        },
+        saveArticle: (state, action) => {
+            state.articlesBySlug[action.payload.slug] = action.payload;
         }
     }
 });
 
-export const { setCurrentPageNumber, setArticlesAndTotalCount, setLoading, setAlertVisibility } = articleListSlice.actions;
+export const { setCurrentPageNumber, setArticlesAndTotalCount, setLoading, setAlertVisibility, saveArticle } = articleListSlice.actions;
 
 export default articleListSlice.reducer;
