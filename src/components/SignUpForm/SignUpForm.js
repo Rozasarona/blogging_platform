@@ -42,18 +42,16 @@ function SignUpForm({ onCreateUser }) {
             </div>
             <input type = "password" placeholder="Password" onInput={inputHandler(setRepeatPassword)} value={repeatPassword} />
             <div className="band"></div>
-            <div className="agreement">
-                <label>
-                    <input type="checkbox" checked={agreement} onChange={event => setAgreement(event.target.checked)} />
-                    <span>I agree to the processing of my personal<br />information</span>
-                </label>
+            <div className="agreement">                
+                <input type="checkbox" checked={agreement} onChange={event => setAgreement(event.target.checked)} />
+                <label>I agree to the processing of my personal information</label>                
             </div>
             <button href="#" className="create_btn" type="submit">
                 Create
             </button>
             <div className="form_footer">
                 <span>Already have an account?</span>
-                <a href="#">Sign in</a>
+                <a href="#"> Sign in</a>
             </div>
         </form>);
 }
