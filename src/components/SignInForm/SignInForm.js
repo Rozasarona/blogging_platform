@@ -81,18 +81,10 @@ function SignUpForm({ onCreateUser }) {
     };
 
     return (
-        <form className = "sign_form" action = "url" method = "post" onSubmit={handleSubmit(onSubmit)}>
+        <form className = "login_form" action = "url" method = "post" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-title">
-                <h3>Create new account</h3>
+                <h2>Sign In</h2>
             </div>
-            <div className="input-title">
-                Username
-            </div>
-            <input
-                {...register(...fields.userName)}
-                className={getClass(...fields.userName)}
-                placeholder="Username" />
-            {errorMessage(...fields.userName)}
             <div className="input-title">
                 Email address
             </div>
@@ -110,31 +102,11 @@ function SignUpForm({ onCreateUser }) {
                 type="password"
                 placeholder="Password" />
             {errorMessage(...fields.password)}
-            <div className="input-title">
-                Repeat password
-            </div>
-            <input
-                {...register(...fields.repeatPassword)}
-                className={getClass(...fields.repeatPassword)}
-                type="password"
-                placeholder="Password" />
-            {errorMessage(...fields.repeatPassword)}
-            <div className="band"></div>
-            <div className="agreement">
-                <label>
-                    <input
-                        {...register(...fields.agreement)}
-                        className={getClass(fields.agreement)}
-                        type="checkbox" />
-                    <span>I agree to the processing of my personal<br />information</span>
-                    {errorMessage(...fields.agreement)}
-                </label>
-            </div>
-            <button className="create_btn" type="submit">
-                Create
+            <button className="login_btn" type="submit">
+                Login
             </button>
             <div className="form_footer">
-                <span>Already have an account?</span>
+                <span>Don't have an account? </span>
                 <a href="/">Sign in</a>
             </div>
         </form>);

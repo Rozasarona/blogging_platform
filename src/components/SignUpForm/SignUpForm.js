@@ -23,7 +23,7 @@ function SignUpForm({ onCreateUser }) {
     return (
         <form className = "sign_form" action = "url" method = "post" onSubmit={formSubmitHandler}>
             <div className="form-title">
-                <h3>Create new account</h3>
+                <h2>Create new account</h2>
             </div>
             <div className="input-title">
                 Username
