@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import './SignInForm.css';
 
-function SignUpForm({ onCreateUser }) {
+function SignInForm({ onLoginUser }) {
     const requiredErrorMessage = attribute => `${attribute} must be specified`;
     const fields = {
         userName: [
@@ -58,7 +58,7 @@ function SignUpForm({ onCreateUser }) {
 
     const { register, handleSubmit, formState: { errors }, getValues, setError } = useForm();
     const onSubmit = async data => {
-        const errors = await onCreateUser(data);
+        const errors = await onLoginUser(data);
         if(errors) {
             if(errors.username) {
                 setError(fields.userName[0], { type: "custom", message: errors.username }, { shouldFocus: true });
@@ -112,4 +112,4 @@ function SignUpForm({ onCreateUser }) {
         </form>);
 }
 
-export default SignUpForm;
+export default SignInForm;
