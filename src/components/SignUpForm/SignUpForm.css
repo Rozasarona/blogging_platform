@@ -31,7 +31,7 @@
     color: #262626;
 }
 
-input {
+.sign_form input {
     width: 320px;
     height: 40px;
     margin: 0 auto 12px auto;

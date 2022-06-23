@@ -107,7 +107,7 @@ function SignInForm({ onLoginUser }) {
             </button>
             <div className="form_footer">
                 <span>Don't have an account? </span>
-                <a href="/">Sign in</a>
+                <a href="/">Sign up</a>
             </div>
         </form>);
 }
