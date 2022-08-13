@@ -1,25 +1,22 @@
 import React from 'react';
-import './HeaderLoginUser.css';
-import { Link } from 'react-router-dom';
 
+import './HeaderLoginUser.css';
 
 function HeaderLoginUser () {
-
-    return(
-
+    return (
         <div className="options">
-            <a href="#" class="create-article_btn">
+            <a href="/" class="create-article_btn">
                 Create article
             </a>
             <span class="name">John Doe</span>
             <div class="photo">
-                <img src="./photo.png">
+                <img src="./photo.png" alt="" />
             </div>
-            <a href="#" class="logout_btn">
+            <a href="/" class="logout_btn">
                 Log Out
             </a>
         </div>
     );
 }
 
-export default HeaderLoginUser;      
+export default HeaderLoginUser;

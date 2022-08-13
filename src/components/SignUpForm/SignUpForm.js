@@ -1,14 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
+import * as helpers from '../../utils/helpers';
+
 import './SignUpForm.css';
 
 function SignUpForm({ onCreateUser }) {
-    const requiredErrorMessage = attribute => `${attribute} must be specified`;
     const fields = {
         userName: [
             "userName", {
-                required: requiredErrorMessage("Username"),
+                required: helpers.ComposeRequiredErrorMessage("Username"),
                 minLength: {
                     value: 3,
                     message: "Username must be minimum of 3 characters"
@@ -21,16 +22,16 @@ function SignUpForm({ onCreateUser }) {
         ],
         email: [
             "email", {
-                required: requiredErrorMessage("Email address"),
+                required: helpers.ComposeRequiredErrorMessage("Email address"),
                 pattern: {
-                    value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                    value: helpers.EmailRegex,
                     message: "Email address is invalid"
                 }
             }
         ],
         password: [
             "password", {
-                required: requiredErrorMessage("Password"),
+                required: helpers.ComposeRequiredErrorMessage("Password"),
                 minLength: {
                     value: 6,
                     message: "Password must be minimum of 6 characters"
@@ -61,11 +62,11 @@ function SignUpForm({ onCreateUser }) {
         const errors = await onCreateUser(data);
         if(errors) {
             if(errors.username) {
-                setError(fields.userName[0], { type: "custom", message: errors.username }, { shouldFocus: true });
+                setError(fields.userName[0], { type: "custom", message: `Username ${errors.username}` }, { shouldFocus: true });
             } else if(errors.email) {
-                setError(fields.email[0], { type: "custom", message: errors.email }, { shouldFocus: true });
+                setError(fields.email[0], { type: "custom", message: `Email ${errors.email}` }, { shouldFocus: true });
             } else if(errors.password) {
-                setError(fields.password[0], { type: "custom", message: errors.password }, { shouldFocus: true });
+                setError(fields.password[0], { type: "custom", message: `Password: ${errors.password}` }, { shouldFocus: true });
             } else {
                 console.error(errors);
             }
@@ -135,7 +136,7 @@ function SignUpForm({ onCreateUser }) {
             </button>
             <div className="form_footer">
                 <span>Already have an account?</span>
-                <a href="/">Sign in</a>
+                <a href="/"> Sign in</a>
             </div>
         </form>);
 }
