@@ -1,0 +1,32 @@
+.logout_btn, .logout_btn:hover {
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: -2px 0 0 19px;
+    border: solid 1px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
+    padding: 0.5em 1em;
+    color: rgba(0, 0, 0, 0.75);
+}
+
+.create-article_btn, .create-article_btn:hover {
+    outline: none;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    margin: -2px 0 0 19px;
+    border: solid 1px #52C41A;
+    border-radius: 5px;
+    padding: 0.15em 1em;
+    color: #52C41A;
+}
+
+.photo {
+    margin-left: 16px;
+}
+
+.name {
+    margin-left: 16px;
+}
+

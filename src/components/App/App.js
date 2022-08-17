@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -14,9 +14,19 @@ import * as constants from '../../app/constants';
 import { setUserName, setEmail, setToken } from '../../app/slices/authenticationSlice';
 
 import './App.css';
+import { StoreUserInfo } from '../../utils/helpers';
 
 function App () {
     const dispatch = useDispatch();
+    useEffect(() => {
+        let userInfoJson = sessionStorage.getItem('userInfo');
+        if (userInfoJson) {
+            let userInfo = JSON.parse(userInfoJson);
+            dispatch(setUserName(userInfo.username));
+            dispatch(setEmail(userInfo.email));
+            dispatch(setToken(userInfo.token));
+        }
+    }, [dispatch])
     const onCreateUser = async (user) => {
         const client = new api.UserAndAuthenticationApi(null, constants.API_BASE_PATH);
         try {
@@ -30,6 +40,7 @@ function App () {
             dispatch(setUserName(result.user.username));
             dispatch(setEmail(result.user.email));
             dispatch(setToken(result.user.token));
+            StoreUserInfo(result.user);
         } catch (response) {
             if (response.status > 400 && response.status < 500) {
                 const { errors } = await response.json();
@@ -51,6 +62,7 @@ function App () {
             dispatch(setUserName(result.user.username));
             dispatch(setEmail(result.user.email));
             dispatch(setToken(result.user.token));
+            StoreUserInfo(result.user);
         } catch (response) {
             if (response.status > 400 && response.status < 500) {
                 const { errors } = await response.json();
